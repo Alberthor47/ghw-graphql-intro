@@ -2,7 +2,7 @@
 marp: true
 theme: default
 paginate: true
-footer: "Intro to RESTful APIs Part 3 | Major League Hacking"
+footer: "Intro to GraphQL Part 3 | Major League Hacking"
 size: 16:9
 ---
 

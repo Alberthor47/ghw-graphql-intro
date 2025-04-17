@@ -1,0 +1,36 @@
+<div class="task-container">
+  <!-- Form to create a new task -->
+  <form class="task-form" (ngSubmit)="addTask()">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="newTask.title" name="title" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="newTask.description" name="description" required></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Task</button>
+  </form>
+
+  <!-- List of tasks -->
+  <div class="task-list">
+    <mat-card *ngFor="let task of tasks" class="task-card">
+      <mat-card-title>
+        {{ task.title }}
+        <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-card-title>
+      <mat-card-content>
+        <p>{{ task.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <mat-slide-toggle [(ngModel)]="task.completed" (change)="toggleTaskCompletion(task)">
+          Done
+        </mat-slide-toggle>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
